@@ -1,12 +1,13 @@
 import Header from './Header';
 import './App.css';
+import Home from './Home';
 
 function App() {
   return (
     //BEM
     <div className="App">
       <Header />
-      <h1>The beginning of my Amazon app!!!! </h1>
+      <Home />
       {/* HEADER */}
       {/* HOME */}
     </div>
