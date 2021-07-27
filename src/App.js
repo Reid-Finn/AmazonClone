@@ -5,9 +5,9 @@ function App() {
   return (
     //BEM
     <div className="App">
+      <Header />
       <h1>The beginning of my Amazon app!!!! </h1>
       {/* HEADER */}
-      <Header />
       {/* HOME */}
     </div>
   );
