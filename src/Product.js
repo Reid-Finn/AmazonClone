@@ -1,26 +1,43 @@
-import React from 'react';
-import "./Product.css"
+import React from 'react'
+import './Product.css'
+import { useStateValue } from './StateProvider'
 
-function Product() {
-    return (
-        <div className="product">
-            <div className="product__info">
-                <p>CORSAIR - K70 RGB MK.2 LOW PROFILE RAPIDFIRE</p>
-                <p className="product__price">
-                    <small>$</small>
-                    <strong>19.99</strong>
-                </p>
-                <div className="product__rating">
-                    <p>stars</p>
-                </div>
-                
-                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6298/6298657cv11d.jpg" alt=""></img>
+function Product({id, title, image, price, rating}) {
 
-                <button> Add to Basket </button>
+  const [{basket}, dispatch] = useStateValue();
+  
+  const addToBasket = () => {
+    //dispatch item into store(datalayer)
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  }
 
-            </div>
+  return (
+    <div className="product">
+        <div className="product__info">
+          <p className="product__title">{title}</p>
+          <p className="product__price">
+            <small>$</small>
+            <strong>{price}</strong>
+          </p>
+          <div className="product__rating">
+            {Array(rating).fill().map((_, i) => (
+              <p>⭐</p>
+            ))}
+          </div>
         </div>
-    )
+        <img src={image} alt=""/>
+        <button onClick={addToBasket}> Add to Basket </button>
+    </div>
+  )
 }
 
 export default Product
