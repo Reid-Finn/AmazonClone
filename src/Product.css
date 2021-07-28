@@ -41,9 +41,9 @@
   }
   
   .product  img {
-    max-height: 640px;
+    max-height: 100px;
     width: 100%;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     z-index: -1;
   }
